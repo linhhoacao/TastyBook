@@ -216,7 +216,6 @@ fun AddRecipeScreen(
                     OutlinedTextField(
                         value = preparationTime,
                         onValueChange = { input ->
-                            // Chỉ cho phép nhập số
                             if (input.isEmpty() || input.all { it.isDigit() }) {
                                 preparationTime = input
                             }

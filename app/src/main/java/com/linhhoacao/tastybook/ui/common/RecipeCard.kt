@@ -31,7 +31,6 @@ fun RecipeCard(
             .height(180.dp)
     ) {
         Column {
-            // Image
             Box(
                 modifier = Modifier
                     .fillMaxWidth()

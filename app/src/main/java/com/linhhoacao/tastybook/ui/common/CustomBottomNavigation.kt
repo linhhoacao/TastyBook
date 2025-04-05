@@ -31,7 +31,7 @@ fun CustomBottomNavigation(
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(Color(0xFFF0F0F0)) // Màu xám nhạt
+            .background(Color(0xFFF0F0F0))
     ) {
         Row(
             modifier = Modifier.fillMaxSize(),
@@ -56,7 +56,6 @@ fun CustomBottomNavigation(
                 }
             )
 
-            // Spacer để tạo khoảng trống cho nút add
             Spacer(modifier = Modifier.width(48.dp))
 
             NavigationIcon(

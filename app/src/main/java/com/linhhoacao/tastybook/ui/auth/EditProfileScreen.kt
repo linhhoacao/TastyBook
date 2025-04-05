@@ -95,13 +95,11 @@ fun EditProfileScreen(
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Profile Image
                 Box(
                     modifier = Modifier
                         .size(120.dp)
                         .clickable { imagePickerLauncher.launch("image/*") }
                 ) {
-                    // If a new image is selected, show it. Otherwise, use the current profile image
                     if (profileImageUri != null) {
                         AsyncImage(
                             model = ImageRequest.Builder(LocalContext.current)
@@ -145,7 +143,6 @@ fun EditProfileScreen(
                         }
                     }
 
-                    // Camera icon overlay
                     Box(
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
@@ -165,7 +162,6 @@ fun EditProfileScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Name Input
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
@@ -174,7 +170,6 @@ fun EditProfileScreen(
                     singleLine = true
                 )
 
-                // Error Message
                 errorMessage?.let { error ->
                     Text(
                         text = error,
@@ -185,7 +180,6 @@ fun EditProfileScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Save Button
                 Button(
                     onClick = {
                         coroutineScope.launch {
@@ -193,12 +187,10 @@ fun EditProfileScreen(
                             errorMessage = null
 
                             try {
-                                // Upload image if a new one is selected
                                 val photoUrl = profileImageUri?.let {
                                     uploadImageToFirebase(it)
                                 } ?: currentUser?.profilePictureUrl
 
-                                // Update profile
                                 val result = userPresenter.updateUserProfile(
                                     name = name,
                                     photoUrl = photoUrl
@@ -207,12 +199,10 @@ fun EditProfileScreen(
                                 if (result.isSuccess) {
                                     navigateBack()
                                 } else {
-                                    // Set error message
                                     errorMessage = result.exceptionOrNull()?.message
                                         ?: "Update failed"
                                 }
                             } catch (e: Exception) {
-                                // Set error message
                                 errorMessage = e.message ?: "An error occurred"
                             } finally {
                                 isLoading = false
@@ -236,7 +226,6 @@ fun EditProfileScreen(
                 }
             }
 
-            // Loading indicator
             if (isLoading) {
                 CircularProgressIndicator(
                     modifier = Modifier

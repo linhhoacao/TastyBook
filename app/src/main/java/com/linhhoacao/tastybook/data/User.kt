@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Create a data class representing a table in the database.
 @Entity(tableName = "user_table")
 data class User(
     @PrimaryKey(autoGenerate = true)
