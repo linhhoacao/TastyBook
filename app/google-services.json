@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "635457280160",
+    "firebase_url": "https://backpack-app-d7709-default-rtdb.firebaseio.com",
+    "project_id": "backpack-app-d7709",
+    "storage_bucket": "backpack-app-d7709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635457280160:android:3ded9d14a8ec25d93fd1c5",
+        "android_client_info": {
+          "package_name": "com.example.backpackapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLVL2LRQyByThgqeuJYzyaUyZrqvPH8Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635457280160:android:c45be14fc034de003fd1c5",
+        "android_client_info": {
+          "package_name": "com.example.carbooking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLVL2LRQyByThgqeuJYzyaUyZrqvPH8Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635457280160:android:6ec3cdf615a8fcf83fd1c5",
+        "android_client_info": {
+          "package_name": "com.linhhoacao.tastybook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLVL2LRQyByThgqeuJYzyaUyZrqvPH8Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
