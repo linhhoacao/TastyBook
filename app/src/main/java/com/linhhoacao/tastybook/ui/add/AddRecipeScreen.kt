@@ -63,7 +63,7 @@ fun AddRecipeScreen(
 
     LaunchedEffect(success) {
         if (success) {
-            Toast.makeText(context, "Thêm công thức thành công", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Add success recipe", Toast.LENGTH_SHORT).show()
             presenter.resetState()
             navigateBack()
         }
@@ -97,7 +97,7 @@ fun AddRecipeScreen(
         if (isGranted) {
             imagePicker.launch("image/*")
         } else {
-            Toast.makeText(context, "Quyền bị từ chối, không thể chọn ảnh", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Permission denied, cannot select photo", Toast.LENGTH_SHORT).show()
         }
     }
 
