@@ -146,7 +146,7 @@ fun SearchScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "No recipe",
+                            text = "No recipes found",
                             color = Color.Gray
                         )
                     }
