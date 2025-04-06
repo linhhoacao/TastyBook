@@ -124,7 +124,7 @@ fun SignUpScreen(
             onValueChange = {
                 password = it
                 if (confirmPassword.isNotEmpty()) {
-                    passwordError = if (password != confirmPassword) "Mật khẩu không khớp" else null
+                    passwordError = if (password != confirmPassword) "Password does not match" else null
                 }
             },
             placeholder = { Text("Create a password") },
@@ -152,7 +152,7 @@ fun SignUpScreen(
             value = confirmPassword,
             onValueChange = {
                 confirmPassword = it
-                passwordError = if (password != confirmPassword) "Mật khẩu không khớp" else null
+                passwordError = if (password != confirmPassword) "Password does not match" else null
             },
             placeholder = { Text("Confirm your password") },
             singleLine = true,
