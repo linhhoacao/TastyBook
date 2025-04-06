@@ -35,7 +35,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
             try {
                 recipeRepository.getNewRecipes()
                     .catch { e ->
-                        _error.value = "Lỗi khi tải new recipes: ${e.message}"
+                        _error.value = "Error loading new recipes: ${e.message}"
                         _isLoading.value = false
                     }
                     .collect { recipes ->
@@ -43,7 +43,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
                         _isLoading.value = false
                     }
             } catch (e: Exception) {
-                _error.value = "Lỗi ngoại lệ: ${e.message}"
+                _error.value = "Error: ${e.message}"
                 _isLoading.value = false
             }
         }
@@ -52,7 +52,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
             try {
                 recipeRepository.getPopularRecipes()
                     .catch { e ->
-                        _error.value = "Lỗi khi tải popular recipes: ${e.message}"
+                        _error.value = "Error loading popular recipes: ${e.message}"
                         _isLoading.value = false
                     }
                     .collect { recipes ->
@@ -60,7 +60,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
                         _isLoading.value = false
                     }
             } catch (e: Exception) {
-                _error.value = "Lỗi ngoại lệ: ${e.message}"
+                _error.value = "Error: ${e.message}"
                 _isLoading.value = false
             }
         }
@@ -69,7 +69,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
             try {
                 recipeRepository.getAllRecipes()
                     .catch { e ->
-                        _error.value = "Lỗi khi tải popular recipes: ${e.message}"
+                        _error.value = "Error loading popular recipes: ${e.message}"
                         _isLoading.value = false
                     }
                     .collect { recipes ->
@@ -77,7 +77,7 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
                         _isLoading.value = false
                     }
             } catch (e: Exception) {
-                _error.value = "Lỗi ngoại lệ: ${e.message}"
+                _error.value = "Error: ${e.message}"
                 _isLoading.value = false
             }
         }
@@ -92,10 +92,10 @@ class HomePresenter(private val recipeRepository: RecipeRepository) {
                     //
                 } else {
                     _error.value = result.exceptionOrNull()?.message
-                        ?: "Không thể xóa công thức"
+                        ?: "Cannot delete recipe"
                 }
             } catch (e: Exception) {
-                _error.value = "Lỗi: ${e.message}"
+                _error.value = "Error: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
