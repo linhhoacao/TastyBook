@@ -157,14 +157,14 @@ class AuthPresenter(private val userRepository: UserRepository) {
 
     private fun getReadableErrorMessage(errorMessage: String?): String {
         return when {
-            errorMessage == null -> "Đã xảy ra lỗi không xác định"
-            errorMessage.contains("no user record") -> "Tài khoản không tồn tại"
-            errorMessage.contains("password is invalid") -> "Mật khẩu không chính xác"
-            errorMessage.contains("email address is badly formatted") -> "Email không đúng định dạng"
-            errorMessage.contains("email address is already in use") -> "Email này đã được sử dụng"
-            errorMessage.contains("operation not allowed") -> "Tính năng này đang bị vô hiệu hóa"
-            errorMessage.contains("weak password") -> "Mật khẩu quá yếu, cần ít nhất 6 ký tự"
-            errorMessage.contains("network") -> "Lỗi kết nối mạng, vui lòng kiểm tra lại"
+            errorMessage == null -> "Unknown error"
+            errorMessage.contains("no user record") -> "Account does not exist"
+            errorMessage.contains("password is invalid") -> "Incorrect password"
+            errorMessage.contains("email address is badly formatted") -> "Email is not in correct format"
+            errorMessage.contains("email address is already in use") -> "This email already in use"
+            errorMessage.contains("operation not allowed") -> "This feature is disabled"
+            errorMessage.contains("weak password") -> "Password requires at least 6 characters"
+            errorMessage.contains("network") -> "Network connection error, please check again"
             else -> errorMessage
         }
     }
