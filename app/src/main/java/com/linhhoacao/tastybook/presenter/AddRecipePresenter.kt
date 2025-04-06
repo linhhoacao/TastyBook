@@ -30,17 +30,17 @@ class AddRecipePresenter(private val recipeRepository: RecipeRepository) {
         imageUri: Uri?
     ) {
         if (name.isBlank()) {
-            _error.value = "Vui lòng nhập tên công thức"
+            _error.value = "Please enter recipe name."
             return
         }
 
         if (category.isBlank()) {
-            _error.value = "Vui lòng chọn danh mục"
+            _error.value = "Please select category."
             return
         }
 
         if (imageUri == null) {
-            _error.value = "Vui lòng chọn ảnh cho công thức"
+            _error.value = "Please add picture for recipe"
             return
         }
 
@@ -61,10 +61,10 @@ class AddRecipePresenter(private val recipeRepository: RecipeRepository) {
                 if (result.isSuccess) {
                     _success.value = true
                 } else {
-                    _error.value = result.exceptionOrNull()?.message ?: "Lỗi không xác định"
+                    _error.value = result.exceptionOrNull()?.message ?: "Unknown error"
                 }
             } catch (e: Exception) {
-                _error.value = "Lỗi khi thêm công thức: ${e.message}"
+                _error.value = "Error adding recipe: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
