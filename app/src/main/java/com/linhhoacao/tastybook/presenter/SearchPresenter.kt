@@ -37,7 +37,7 @@ class SearchPresenter(private val recipeRepository: RecipeRepository) {
 
                 recipeRepository.getAllRecipes()
                     .catch { e ->
-                        _error.value = "Lỗi khi tải recipes: ${e.message}"
+                        _error.value = "Error loading recipes: ${e.message}"
                         _isLoading.value = false
                     }
                     .collect { recipes ->
@@ -56,7 +56,7 @@ class SearchPresenter(private val recipeRepository: RecipeRepository) {
                         _isLoading.value = false
                     }
             } catch (e: Exception) {
-                _error.value = "Lỗi ngoại lệ: ${e.message}"
+                _error.value = "Error: ${e.message}"
                 _isLoading.value = false
             }
         }
@@ -84,10 +84,10 @@ class SearchPresenter(private val recipeRepository: RecipeRepository) {
                     //
                 } else {
                     _error.value = result.exceptionOrNull()?.message
-                        ?: "Không thể xóa công thức"
+                        ?: "Cannot delete recipe"
                 }
             } catch (e: Exception) {
-                _error.value = "Lỗi: ${e.message}"
+                _error.value = "Error: ${e.message}"
             } finally {
                 _isLoading.value = false
             }

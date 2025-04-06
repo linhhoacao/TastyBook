@@ -34,7 +34,7 @@ class UserPresenter(private val userRepository: UserRepository) {
                 if (firebaseUser == null) {
                     _userState.value = _userState.value.copy(
                         isLoading = false,
-                        error = "Chưa đăng nhập"
+                        error = "Not logged in yet"
                     )
                     return@launch
                 }
@@ -43,7 +43,7 @@ class UserPresenter(private val userRepository: UserRepository) {
                 if (currentUserEmail.isNullOrEmpty()) {
                     _userState.value = _userState.value.copy(
                         isLoading = false,
-                        error = "Email không hợp lệ"
+                        error = "Invalid Email"
                     )
                     return@launch
                 }
@@ -64,7 +64,7 @@ class UserPresenter(private val userRepository: UserRepository) {
                     } else {
                         _userState.value = _userState.value.copy(
                             isLoading = false,
-                            error = "Không tìm thấy thông tin người dùng"
+                            error = "User information not found"
                         )
                     }
                 } else {
@@ -74,7 +74,7 @@ class UserPresenter(private val userRepository: UserRepository) {
                     )
                 }
             } catch (e: Exception) {
-                Log.e("UserPresenter", "Lỗi tải thông tin người dùng", e)
+                Log.e("UserPresenter", "Error loading user information", e)
                 _userState.value = _userState.value.copy(
                     isLoading = false,
                     error = e.message
@@ -117,7 +117,7 @@ class UserPresenter(private val userRepository: UserRepository) {
 
             Result.success(userList)
         } catch (e: Exception) {
-            Log.e("UserPresenter", "Lỗi lấy danh sách người dùng", e)
+            Log.e("UserPresenter", "Error getting user list", e)
             Result.failure(e)
         }
     }
@@ -129,7 +129,7 @@ class UserPresenter(private val userRepository: UserRepository) {
     suspend fun updateUserProfile(name: String, photoUrl: String?): Result<Unit> {
         return try {
             val currentUser = userRepository.getCurrentUser()
-                ?: return Result.failure(Exception("Người dùng chưa đăng nhập"))
+                ?: return Result.failure(Exception("User is not logged in"))
 
             val profileUpdates = UserProfileChangeRequest.Builder()
                 .setDisplayName(name)
@@ -151,7 +151,7 @@ class UserPresenter(private val userRepository: UserRepository) {
 
             Result.success(Unit)
         } catch (e: Exception) {
-            Log.e("UserPresenter", "Lỗi cập nhật hồ sơ người dùng", e)
+            Log.e("UserPresenter", "Error updating user profile", e)
             Result.failure(e)
         }
     }

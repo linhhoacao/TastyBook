@@ -43,7 +43,7 @@ class RecipeDetailPresenter(private val recipeRepository: RecipeRepository) {
             } catch (e: Exception) {
                 _recipeState.value = RecipeDetailState(
                     isLoading = false,
-                    error = "Lỗi khi tải dữ liệu: ${e.message}"
+                        error = "Error loading data: ${e.message}"
                 )
             }
         }
