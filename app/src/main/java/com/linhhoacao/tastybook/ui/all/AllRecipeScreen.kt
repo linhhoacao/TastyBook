@@ -96,7 +96,7 @@ fun AllRecipeScreen(
 
                 if (allRecipes.isEmpty() && !isLoading) {
                     Text(
-                        text = "Không có công thức phổ biến",
+                        text = "No popular recipes",
                         modifier = Modifier.padding(vertical = 16.dp),
                         color = Color.Gray
                     )
@@ -189,8 +189,8 @@ fun RecipeCard(
         if (showDeleteDialog) {
             AlertDialog(
                 onDismissRequest = { showDeleteDialog = false },
-                title = { Text("Xóa công thức") },
-                text = { Text("Bạn có chắc chắn muốn xóa công thức này?") },
+                title = { Text("Delete recipe") },
+                text = { Text("Are you sure you want to delete this recipe?") },
                 confirmButton = {
                     TextButton(
                         onClick = {
@@ -198,14 +198,14 @@ fun RecipeCard(
                             showDeleteDialog = false
                         }
                     ) {
-                        Text("Xóa")
+                        Text("Delete")
                     }
                 },
                 dismissButton = {
                     TextButton(
                         onClick = { showDeleteDialog = false }
                     ) {
-                        Text("Hủy")
+                        Text("Cancel")
                     }
                 }
             )
