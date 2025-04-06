@@ -239,8 +239,8 @@ fun RecipeCard(
         if (showDeleteDialog) {
             AlertDialog(
                 onDismissRequest = { showDeleteDialog = false },
-                title = { Text("Xóa công thức") },
-                text = { Text("Bạn có chắc chắn muốn xóa công thức này?") },
+                title = { Text("Delete Recipe") },
+                text = { Text("Are you sure you want to delete this recipe?") },
                 confirmButton = {
                     TextButton(
                         onClick = {
@@ -248,14 +248,14 @@ fun RecipeCard(
                             showDeleteDialog = false
                         }
                     ) {
-                        Text("Xóa")
+                        Text("Delete")
                     }
                 },
                 dismissButton = {
                     TextButton(
                         onClick = { showDeleteDialog = false }
                     ) {
-                        Text("Hủy")
+                        Text("Cancel")
                     }
                 }
             )
