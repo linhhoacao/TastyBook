@@ -191,7 +191,7 @@ fun RecipeDetailScreen(
                     .padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Không tìm thấy công thức")
+                Text("Recipe not found")
             }
         }
     }
